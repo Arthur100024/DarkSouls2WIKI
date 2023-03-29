@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +17,9 @@ public class AuthActivity extends AppCompatActivity {
 
     ActivityAuthBinding binding;
 
+    public static SharedPreferences sharedPrefs;
+    public static final String LOGGED = "IsUserLogged";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +27,40 @@ public class AuthActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        replaceFragment(new SignInFragment());
+        sharedPrefs = getSharedPreferences("prefs",MODE_PRIVATE);
+
+        checkUserLogged();  //Проверяем заходил ли юзер ранее
+
+
 
     }
+
+    public void checkUserLogged(){
+        if (sharedPrefs.getString(LOGGED, null).equals("No")){
+            replaceFragment(new SignInFragment());
+        } else {
+            changeActivity(".NavigationActivity");
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.frameAuth, fragment);
         ft.commit();
+    }
+
+    public void changeActivity(String name_of_activity){
+        Intent changeMyActivity = new Intent(name_of_activity);
+        startActivity(changeMyActivity);
     }
 }

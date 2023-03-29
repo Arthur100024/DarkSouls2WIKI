@@ -20,9 +20,13 @@ import com.karapetyan.darksoulswiki.databinding.FragmentSignInBinding;
 public class SignInFragment extends Fragment {
 
     FragmentSignInBinding binding;
+
     boolean isHided = true;
 
-    public static SignInFragment newInstance() {return new SignInFragment();}
+
+    public static SignInFragment newInstance() {
+        return new SignInFragment();
+    }
 
 
     @Override
@@ -39,13 +43,7 @@ public class SignInFragment extends Fragment {
         binding.hidePassBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isHided){
-                    binding.passwordSignInEt.setTransformationMethod(null);
-                } else {
-                    binding.passwordSignInEt.setTransformationMethod(new PasswordTransformationMethod());
-                }
-                isHided = !isHided;
-                binding.passwordSignInEt.setSelection(binding.passwordSignInEt.length());
+                passwordEncryption();   //Шифрование или расшифрование пароля
             }
         });
 
@@ -59,17 +57,34 @@ public class SignInFragment extends Fragment {
         binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new SignUpFragment());
+                replaceFragment(new SignUpFragment());  //На страницу регистрации
             }
         });
 
         binding.noSignBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new NoAccAttentionFragment());
+                replaceFragment(new NoAccAttentionFragment());  //На страницу предупреждения
             }
         });
     }
+
+
+    public void passwordEncryption(){
+        if (isHided){
+            binding.passwordSignInEt.setTransformationMethod(null);
+        } else {
+            binding.passwordSignInEt.setTransformationMethod(new PasswordTransformationMethod());
+        }
+        isHided = !isHided;
+        binding.passwordSignInEt.setSelection(binding.passwordSignInEt.length());
+    }
+
+
+
+
+
+
 
     public void changeActivity(String name_of_activity){
         Intent changeMyActivity = new Intent(name_of_activity);

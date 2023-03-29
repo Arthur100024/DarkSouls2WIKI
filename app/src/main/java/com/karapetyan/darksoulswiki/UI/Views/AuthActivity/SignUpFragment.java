@@ -1,5 +1,6 @@
 package com.karapetyan.darksoulswiki.UI.Views.AuthActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,8 @@ import com.karapetyan.darksoulswiki.databinding.FragmentSignUpBinding;
 public class SignUpFragment extends Fragment {
 
     FragmentSignUpBinding binding;
+
+    boolean isHided = true;
 
     public static SignUpFragment newInstance() {
         return new SignUpFragment();
@@ -34,13 +38,34 @@ public class SignUpFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        binding.hidePassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                passwordEncryption();   //Шифрование или расшифрование пароля
+            }
+        });
 
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeActivity(".NavigationActivity");
+            }
+        });
     }
 
-    public void replaceFragment(Fragment fragment){
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.frameAuth, fragment);
-        ft.commit();
+
+    public void passwordEncryption(){
+        if (isHided){
+            binding.passwordEt.setTransformationMethod(null);
+        } else {
+            binding.passwordEt.setTransformationMethod(new PasswordTransformationMethod());
+        }
+        isHided = !isHided;
+        binding.passwordEt.setSelection(binding.passwordEt.length());
+    }
+
+    public void changeActivity(String name_of_activity){
+        Intent changeMyActivity = new Intent(name_of_activity);
+        startActivity(changeMyActivity);
     }
 }
