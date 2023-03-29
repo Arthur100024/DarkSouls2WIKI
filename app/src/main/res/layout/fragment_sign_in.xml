@@ -58,4 +58,12 @@
         android:layout_marginTop="260dp"
         android:text="Нет аккаунта" />
 
+    <Button
+        android:id="@+id/noSignBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:text="Не входить" />
+
 </RelativeLayout>

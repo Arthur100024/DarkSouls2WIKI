@@ -52,8 +52,7 @@ public class SignInFragment extends Fragment {
         binding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), NavigationActivity.class);
-//                startActivity(intent);
+                changeActivity(".NavigationActivity");
             }
         });
 
@@ -63,6 +62,18 @@ public class SignInFragment extends Fragment {
                 replaceFragment(new SignUpFragment());
             }
         });
+
+        binding.noSignBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new NoAccAttentionFragment());
+            }
+        });
+    }
+
+    public void changeActivity(String name_of_activity){
+        Intent changeMyActivity = new Intent(name_of_activity);
+        startActivity(changeMyActivity);
     }
 
     public void replaceFragment(Fragment fragment){
@@ -71,6 +82,7 @@ public class SignInFragment extends Fragment {
         ft.replace(R.id.frameAuth, fragment);
         ft.commit();
     }
+
 
 
 }
