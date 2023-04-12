@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-import com.karapetyan.darksoulswiki.databinding.ActivityAuthBinding;
+import com.karapetyan.darksoulswiki.UI.Views.NavigationActivity.LocationsFragment;
 import com.karapetyan.darksoulswiki.databinding.ActivityNavigationBinding;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -31,6 +31,10 @@ public class NavigationActivity extends AppCompatActivity {
         setUserLogged();    //Устанавливаем что юзер заходил
 
 
+
+        replaceFragment(new LocationsFragment());
+
+
     }
 
     public void setUserLogged(){
@@ -39,21 +43,10 @@ public class NavigationActivity extends AppCompatActivity {
         editorLogged.apply();
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.frameAuth, fragment);
+        ft.replace(R.id.frameNavigation, fragment);
         ft.commit();
     }
 }

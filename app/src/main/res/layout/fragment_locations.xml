@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Views.NavigationActivity.LocationsFragment">
+
+    <EditText
+        android:id="@+id/searchLocations"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:drawableStart="@drawable/ic_search"
+        android:background="@color/grey"
+        android:hint="Найти"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLocations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchLocations"
+        android:background="@color/grey"
+        android:layout_marginTop="20dp"/>
+</RelativeLayout>
