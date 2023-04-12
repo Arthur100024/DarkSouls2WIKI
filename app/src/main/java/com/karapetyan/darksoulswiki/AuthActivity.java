@@ -29,17 +29,21 @@ public class AuthActivity extends AppCompatActivity {
 
         sharedPrefs = getSharedPreferences("prefs",MODE_PRIVATE);
 
-        checkUserLogged();  //Проверяем заходил ли юзер ранее
+        try {
+            checkUserLogged();  //Проверяем заходил ли юзер ранее
+        } catch (Exception e){
+            replaceFragment(new SignInFragment());
+        }
 
 
 
     }
 
     public void checkUserLogged(){
-        if (sharedPrefs.getString(LOGGED, null).equals("No")){
-            replaceFragment(new SignInFragment());
-        } else {
+        if (sharedPrefs.getString(LOGGED, null).equals("Yes")){
             changeActivity(".NavigationActivity");
+        } else {
+            replaceFragment(new SignInFragment());
         }
     }
 

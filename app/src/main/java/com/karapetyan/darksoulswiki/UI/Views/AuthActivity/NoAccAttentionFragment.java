@@ -40,10 +40,24 @@ public class NoAccAttentionFragment extends Fragment {
                 changeActivity(".NavigationActivity");
             }
         });
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new SignInFragment());
+            }
+        });
     }
 
     public void changeActivity(String name_of_activity){
         Intent changeMyActivity = new Intent(name_of_activity);
         startActivity(changeMyActivity);
+    }
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frameAuth, fragment);
+        ft.commit();
     }
 }
