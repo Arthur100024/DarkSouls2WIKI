@@ -61,12 +61,12 @@ public class SignInFragment extends Fragment {
             }
         });
 
-        binding.noSignBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                replaceFragment(new NoAccAttentionFragment());  //На страницу предупреждения
-            }
-        });
+//        binding.noSignBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                replaceFragment(new NoAccAttentionFragment());  //На страницу предупреждения
+//            }
+//        });
     }
 
 

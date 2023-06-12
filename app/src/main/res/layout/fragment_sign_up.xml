@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="80sp"
         android:layout_marginTop="80dp"
-        android:hint="Никнейм"
+        android:hint="Nickname"
         android:paddingStart="15dp" />
 
     <EditText
@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="80sp"
         android:layout_marginTop="150dp"
-        android:hint="Логин"
+        android:hint="Login"
         android:paddingStart="15dp" />
 
     <RelativeLayout
@@ -38,7 +38,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="80sp"
             android:inputType="textPassword"
-            android:hint="Пароль"
+            android:hint="Password"
             android:paddingStart="15dp" />
 
         <Button
@@ -58,6 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="280dp"
-        android:text="Зарегистрироваться"/>
+        android:text="Sign Up"/>
 
 </RelativeLayout>
