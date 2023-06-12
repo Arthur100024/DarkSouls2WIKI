@@ -34,9 +34,6 @@ public class AuthActivity extends AppCompatActivity {
         } catch (Exception e){
             replaceFragment(new SignInFragment());
         }
-
-
-
     }
 
     public void checkUserLogged(){

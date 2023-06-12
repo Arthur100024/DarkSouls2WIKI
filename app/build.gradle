@@ -33,6 +33,15 @@ android {
 
 dependencies {
 
+    //Retrofit
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Room
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
     //MVVM
     def lifecycle_version = "2.6.0-alpha02"
     def arch_version = "2.1.0"

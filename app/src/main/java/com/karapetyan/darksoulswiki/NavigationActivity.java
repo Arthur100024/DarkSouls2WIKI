@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.karapetyan.darksoulswiki.UI.Views.NavigationActivity.LocationsFragment;
+import com.karapetyan.darksoulswiki.UI.Views.NavigationActivity.MenuFragment;
 import com.karapetyan.darksoulswiki.databinding.ActivityNavigationBinding;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class NavigationActivity extends AppCompatActivity {
 
 
 
-        replaceFragment(new LocationsFragment());
+        replaceFragment(new MenuFragment());
 
 
     }

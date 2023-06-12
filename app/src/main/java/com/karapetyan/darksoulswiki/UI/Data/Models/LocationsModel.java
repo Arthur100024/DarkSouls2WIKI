@@ -8,14 +8,14 @@ import java.util.Objects;
 public class LocationsModel {
     private long id;
     private String name;
-    private int image;
+    private String description;
 
     public LocationsModel(){}
 
-    public LocationsModel(String name, int image){
+    public LocationsModel(long id, String name, String description){
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.description = description;
     }
 
     public long getId() {
@@ -34,11 +34,11 @@ public class LocationsModel {
         this.name = name;
     }
 
-    public int getImage() {
-        return this.image;
+    public String getDescription() {
+        return this.description;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
